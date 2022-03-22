@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "id": "spectreboots",
+  "version": "${version}",
+  "name": "Spectreboots",
+  "description": "",
+  "authors": [
+    "imexoedeex"
+  ],
+  "contact": {
+    "website": "cebuliony.pl"
+  },
+  "license": "GPL-3.0",
+  "icon": "assets/spectreboots/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "client": [
+      "imexoodeex.spectreboots.client.SpectrebootsClient"
+    ],
+    "main": [
+      "imexoodeex.spectreboots.Spectreboots"
+    ]
+  },
+  "mixins": [
+    "spectreboots.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.13.3",
+    "fabric": "*",
+    "minecraft": "1.18.2"
+  }
+}
