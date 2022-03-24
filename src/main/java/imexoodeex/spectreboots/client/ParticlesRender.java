@@ -32,11 +32,11 @@ public class ParticlesRender {
 
     private static void spawnParticles(LivingEntity entity, float random, World world, Vec3d left, Vec3d right) {
         if (!entity.isSubmergedInWater()) {
-            world.addParticle(ParticleTypes.FLAME, left.x, left.y, left.z, 0, -0.2D, 0);
-            world.addParticle(ParticleTypes.SMOKE, right.x, right.y, right.z, 0, -0.2D, 0);
+            world.addParticle(ParticleTypes.FLAME, left.x, left.y, left.z, random, -0.2D, random);
+            world.addParticle(ParticleTypes.SMOKE, right.x, right.y, right.z, random, -0.2D, random);
 
-            world.addParticle(ParticleTypes.FLAME, left.x, left.y, left.z, 0, -0.2D, 0);
-            world.addParticle(ParticleTypes.SMOKE, right.x, right.y, right.z, 0, -0.2D, 0);
+            world.addParticle(ParticleTypes.FLAME, left.x, left.y, left.z, random, -0.2D, random);
+            world.addParticle(ParticleTypes.SMOKE, right.x, right.y, right.z, random, -0.2D, random);
         } else {
             world.addParticle(ParticleTypes.BUBBLE, left.x, left.y, left.z, random, -0.2D, random);
             world.addParticle(ParticleTypes.BUBBLE, right.x, right.y, right.z, random, -0.2D, random);
