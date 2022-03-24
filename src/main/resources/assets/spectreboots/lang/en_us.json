@@ -1,3 +1,9 @@
 {
-  "item.spectreboots.hermes_boots": "Hermes boots"
+  "item.spectreboots.hermes_boots": "Hermes boots",
+  "item.spectreboots.rocket_boots": "Rocket boots",
+  "spectreboots": "Boosts your Speed",
+  "rocketboots": "You can fly to the sky!",
+  "shift": "Hold §a§lSHIFT§f for more info",
+  "ctrl": "§kIMPOSTOR IS SUS",
+  "alt": "§kHOW DID YOU KNOW?"
 }
