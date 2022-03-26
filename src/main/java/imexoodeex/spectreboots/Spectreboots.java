@@ -1,7 +1,7 @@
 package imexoodeex.spectreboots;
 
+import imexoodeex.spectreboots.registry.RegisterParticles;
 import imexoodeex.spectreboots.items.SpectreItems;
-import imexoodeex.spectreboots.registry.ItemsRegister;
 import net.fabricmc.api.ModInitializer;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -13,5 +13,6 @@ public class Spectreboots implements ModInitializer {
     @Override
     public void onInitialize() {
         SpectreItems.init();
+        RegisterParticles.registerParticle();
     }
 }

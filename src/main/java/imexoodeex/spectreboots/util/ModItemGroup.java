@@ -10,6 +10,6 @@ import net.minecraft.util.Identifier;
 
 public class ModItemGroup {
     public static final ItemGroup SPECTRE_BOOTS = FabricItemGroupBuilder.build(
-            new Identifier(Spectreboots.MOD_ID, "fuelify"),
+            new Identifier(Spectreboots.MOD_ID, "spectreboots"),
             () -> new ItemStack(Items.LEATHER_BOOTS));
 }

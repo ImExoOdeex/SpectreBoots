@@ -2,7 +2,7 @@ package imexoodeex.spectreboots.armor;
 
 import dev.emi.trinkets.api.SlotReference;
 import dev.emi.trinkets.api.TrinketItem;
-import imexoodeex.spectreboots.client.ParticlesRender;
+import imexoodeex.spectreboots.client.particles.RocketBootsParticles;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.item.TooltipContext;
@@ -16,9 +16,6 @@ import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
-import java.util.Random;
-
-import static imexoodeex.spectreboots.Spectreboots.LOGGER;
 
 public class RocketBoots extends TrinketItem {
 
@@ -35,27 +32,37 @@ public class RocketBoots extends TrinketItem {
 
             World world = entity.world;
 
-        for (int i = 0; i < 4; i++) {
-            float fallBlocks0 = 1;
-            float fallBlocks = (float) (fallBlocks0 + 0.3);
-
-            entity.fallDistance = fallBlocks;
-        }
             if (yVelocity < -2.2) {
                 entity.fallDistance = 16.0F;
             } else if (yVelocity > -2.2 && yVelocity < -1.8) {
                 entity.fallDistance = 8.0F;
-            } else if (yVelocity > -1.8 && yVelocity < -1.3) {
+            } else if (yVelocity > -1.8 && yVelocity < -1.5) {
                 entity.fallDistance = 4.0F;
-            } else if (yVelocity > -1.3) {
+            } else if (yVelocity > -1.5) {
                 entity.fallDistance = 3.0F;
             } else {
                 entity.fallDistance = 0.0F;
             }
-            if (isJumping) {
-                entity.setVelocity(v.getX(), (yVelocity * 0.9) + 0.1, v.getZ());
-                ParticlesRender.spawnRocketParticles(entity, world);
+
+/*            if (world.isClient()) {
+                boolean swimming = entity.isSwimming();
+                boolean swimmingPose = entity.isInSwimmingPose();
+                LOGGER.info("is entity swimming: " + swimming);
+                LOGGER.info("is entity in swimming pose: " + swimmingPose);
+            }*/
+
+            if (entity.isSwimming() && entity.isInSwimmingPose()) {
+                entity.setVelocity(v.getX(), v.getY(), v.getZ());
             }
+            else if (entity.isSubmergedInWater() && isJumping) {
+                entity.setVelocity(v.getX(), (yVelocity * 0.9) + 0.02, v.getZ());
+                RocketBootsParticles.spawnRocketParticles(entity, world);
+            }
+            else if (isJumping && !entity.isClimbing()) {
+                entity.setVelocity(v.getX(), (yVelocity * 0.9) + 0.1, v.getZ());
+                RocketBootsParticles.spawnRocketParticles(entity, world);
+            }
+
         super.tick(stack, slot, entity);
     }
 
