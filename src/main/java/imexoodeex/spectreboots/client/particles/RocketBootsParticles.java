@@ -19,8 +19,8 @@ public class RocketBootsParticles {
         Vec3d playerPos = entity.getPos();
         float random = (rand.nextFloat() - 0.5F) * 0.1F;
 
-        Vec3d vLeft = new Vec3d(-0.15, 0 , 0 ).rotateX(0).rotateY(yBodyRot);
-        Vec3d vRight = new Vec3d(0.15, 0 , 0 ).rotateX(0).rotateY(yBodyRot);
+        Vec3d vLeft = new Vec3d(-0.15, 0 , 0 ).rotateX(0).rotateY((yBodyRot / -57.295f));
+        Vec3d vRight = new Vec3d(0.15, 0 , 0 ).rotateX(0).rotateY((yBodyRot / -57.295f));
 
         Vec3d right = playerPos.add(vRight).add(new Vec3d(new Vec3f(entity.getVelocity().multiply(0.01D))));
         Vec3d left = playerPos.add(vLeft).add(new Vec3d(new Vec3f(entity.getVelocity().multiply(0.01D))));
@@ -40,16 +40,10 @@ public class RocketBootsParticles {
             }
 
         } else {
-            world.addParticle(ParticleTypes.BUBBLE, left.x, left.y, left.z, random, -0.02D, random);
-            world.addParticle(ParticleTypes.BUBBLE, right.x, right.y, right.z, random, -0.02D, random);
-            world.addParticle(ParticleTypes.BUBBLE, left.x, left.y, left.z, random, -0.02D, random);
-            world.addParticle(ParticleTypes.BUBBLE, right.x, right.y, right.z, random, -0.02D, random);
-            world.addParticle(ParticleTypes.BUBBLE, left.x, left.y, left.z, random, -0.05D, random);
-            world.addParticle(ParticleTypes.BUBBLE, right.x, right.y, right.z, random, -0.05D, random);
-            world.addParticle(ParticleTypes.BUBBLE, left.x, left.y, left.z, random, -0.05D, random);
-            world.addParticle(ParticleTypes.BUBBLE, right.x, right.y, right.z, random, -0.05D, random);
-            world.addParticle(ParticleTypes.BUBBLE, left.x, left.y, left.z, random, -0.05D, random);
-            world.addParticle(ParticleTypes.BUBBLE, right.x, right.y, right.z, random, -0.05D, random);
+            for (int i = 0; i < 5; i++) {
+                world.addParticle(ParticleTypes.BUBBLE, left.x, left.y, left.z, random, -0.02D, random);
+                world.addParticle(ParticleTypes.BUBBLE, right.x, right.y, right.z, random, -0.02D, random);
+            }
         }
     }
 

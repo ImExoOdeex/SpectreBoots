@@ -1,10 +1,12 @@
 {
+  "itemGroup.spectreboots.spectreboots": "Spectre boots",
   "item.spectreboots.hermes_boots": "Hermes boots",
   "item.spectreboots.rocket_boots": "Rocket boots",
-  "spectreboots": "Boosts your Speed",
-  "rocketboots": "You can fly to the sky!",
+  "item.spectreboots.spectre_boots": "Spectre boots",
+  "hermesboots": "Boosts your §3Speed",
+  "rocketboots": "Allows §4flight §rfor some §5time",
+  "spectreboots": "Combination §4rocket boots §rwith §3hermes boots",
   "shift": "Hold §a§lSHIFT§f for more info",
   "ctrl": "§kIMPOSTOR IS SUS",
-  "alt": "§kHOW DID YOU KNOW?",
-  "itemGroup.spectreboots.spectreboots": "Spectre boots"
+  "alt": "§kHOW DID YOU KNOW?"
 }

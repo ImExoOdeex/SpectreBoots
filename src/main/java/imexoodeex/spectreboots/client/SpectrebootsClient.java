@@ -20,23 +20,36 @@ public class SpectrebootsClient implements ClientModInitializer {
 
     @Override
     public void onInitializeClient() {
-//        spaceKeyBind = KeyBindingHelper.registerKeyBinding(new KeyBinding(
-//                "space", // The translation key of the keybinding's name
-//                GLFW.GLFW_KEY_SPACE, // The keycode of the key
-//                "category.spectreboots.on"
-//        ));
 
-
+        //overspeed particle
         ClientSpriteRegistryCallback.event(PlayerScreenHandler.BLOCK_ATLAS_TEXTURE).register(((atlasTexture, registry) -> {
             registry.register(new Identifier("spectreboots", "particle/overspeed"));
         }));
-
-        /* Registers our particle client-side.
-         * First argument is our particle's instance, created previously on ExampleMod.
-         * Second argument is the particle's factory. The factory controls how the particle behaves.
-         * In this example, we'll use FlameParticle's Factory.*/
         ParticleFactoryRegistry.getInstance().register(RegisterParticles.OVERSPEED, FlameParticle.Factory::new);
 
+        //second overspeed particle
+        ClientSpriteRegistryCallback.event(PlayerScreenHandler.BLOCK_ATLAS_TEXTURE).register(((atlasTexture, registry) -> {
+            registry.register(new Identifier("spectreboots", "particle/second_overspeed"));
+        }));
+        ParticleFactoryRegistry.getInstance().register(RegisterParticles.SEC0ND_OVERSPEED, FlameParticle.Factory::new);
+
+        //purple piece
+        ClientSpriteRegistryCallback.event(PlayerScreenHandler.BLOCK_ATLAS_TEXTURE).register(((atlasTexture, registry) -> {
+            registry.register(new Identifier("spectreboots", "particle/purple_piece"));
+        }));
+        ParticleFactoryRegistry.getInstance().register(RegisterParticles.PURPLE_PIECE, FlameParticle.Factory::new);
+
+        //pink piece
+        ClientSpriteRegistryCallback.event(PlayerScreenHandler.BLOCK_ATLAS_TEXTURE).register(((atlasTexture, registry) -> {
+            registry.register(new Identifier("spectreboots", "particle/pink_piece"));
+        }));
+        ParticleFactoryRegistry.getInstance().register(RegisterParticles.PINK_PIECE, FlameParticle.Factory::new);
+
+        //green piece
+        ClientSpriteRegistryCallback.event(PlayerScreenHandler.BLOCK_ATLAS_TEXTURE).register(((atlasTexture, registry) -> {
+            registry.register(new Identifier("spectreboots", "particle/green_piece"));
+        }));
+        ParticleFactoryRegistry.getInstance().register(RegisterParticles.GREEN_PIECE, FlameParticle.Factory::new);
 
     }
 }

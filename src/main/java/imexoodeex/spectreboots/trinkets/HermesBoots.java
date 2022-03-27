@@ -1,4 +1,4 @@
-package imexoodeex.spectreboots.armor;
+package imexoodeex.spectreboots.trinkets;
 
 import com.google.common.collect.Multimap;
 import dev.emi.trinkets.api.SlotReference;
@@ -6,7 +6,7 @@ import dev.emi.trinkets.api.TrinketItem;
 import imexoodeex.spectreboots.client.particles.HermesBootsParticles;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.item.TooltipContext;
-import net.minecraft.entity.EquipmentSlot;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.attribute.EntityAttribute;
 import net.minecraft.entity.attribute.EntityAttributeModifier;
@@ -19,9 +19,6 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 import java.util.UUID;
-
-import static imexoodeex.spectreboots.Spectreboots.LOGGER;
-import static net.minecraft.entity.attribute.EntityAttributes.GENERIC_MOVEMENT_SPEED;
 
 public class HermesBoots extends TrinketItem {
 
@@ -45,6 +42,9 @@ public class HermesBoots extends TrinketItem {
         if (isSprinting && isGrounded) {
             HermesBootsParticles.spawnRocketParticles(entity, world);
         }
+        /*
+         * <p>Trinkets getModifiers function does updates only on game load, so fuck it
+         * */
         /*add 0.05 to value with every 20 ticks, stop adding at 0.2 value*/
        /* if (entity.isSprinting()) {
             a++;
@@ -72,10 +72,11 @@ public class HermesBoots extends TrinketItem {
         return modifiers;
     }
 
+
     @Override
     public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
         if (Screen.hasShiftDown()) {
-            tooltip.add(new TranslatableText("spectreboots"));
+            tooltip.add(new TranslatableText("hermesboots"));
         } else if (Screen.hasControlDown()) {
             tooltip.add(new TranslatableText("ctrl"));
         } else if (Screen.hasAltDown()) {

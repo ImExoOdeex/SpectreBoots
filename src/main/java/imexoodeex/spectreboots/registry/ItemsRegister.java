@@ -15,10 +15,6 @@ public class ItemsRegister extends Item {
         super(settings);
     }
 
-    public static Item.Settings createGroup() {
-        return new Item.Settings().group(ModItemGroup.SPECTRE_BOOTS);
-    }
-
     public static Item registerItems(String itemName, Item item) {
         Registry.register(Registry.ITEM, createIdentifier(itemName), item);
         return item;

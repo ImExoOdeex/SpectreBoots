@@ -1,7 +1,8 @@
 {
-  "replace": false,
+  "replace": true,
   "values": [
     "spectreboots:hermes_boots",
-    "spectreboots:rocket_boots"
+    "spectreboots:rocket_boots",
+    "spectreboots:spectre_boots"
   ]
 }
