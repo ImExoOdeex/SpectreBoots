@@ -1,3 +1,2 @@
-# SpectreBoots
-Allows you fly and walk faster!
-# WIP
+## SpectreBoots
+### Moved to [utilities mod](https://github.com/ImExoOdeex/Utilities)!!!
